@@ -416,5 +416,6 @@ def gallery():
 #             return redirect(url_for('admin'))
 #     return render_template('admin.html', user=current_user)
 
-port = int(os.environ.get("PORT", 5000))
-app.run(host="0.0.0.0",port=port,debug=False)
+if "__name__" == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0",port=port,debug=False)
