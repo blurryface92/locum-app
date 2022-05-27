@@ -1,0 +1,45 @@
+{% extends "jobs.html" %}
+
+
+{% block jobs %}
+<div class="grid_container">
+    {% if jobs!=[] %}
+    {% for job in jobs %}
+    
+    <div class="grid">
+        <div class="grid-header">
+            <div class="name">
+                <h1>{{ job.name }}</h1>
+                {% if user.id==job.user_id%}
+                <span ><a href="/jobs/edit/{{job.id}}">(edit)</a></span>
+                {% endif %}
+            </div>
+            
+            {% if user.id==job.user_id%}
+            <div class="delete"><a href="/delete/{{job.id}}">X</a></div>
+            {% endif %}
+        </div>
+        <span>Available as a {{ job.job}}</span>
+        <p><span>Description: </span><br>{{ job.description }}</p>
+        <span>{{ job.contact_no }}</span>
+        <span>{{ job.timings }} - {{ job.location }}</span>
+        <a href="mailto:{{job.email}}" class="job-btn">Contact</a><br>
+        <a href="/files/{{job.cv}}" class="job-btn" target="_blank">CV</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    
+
+    
+</div>
+</div>
+
+<div class="anytime">    
+    {% if user.is_authenticated %}
+    <span class="text-center">Feel Free to Apply!</span>
+    {% else %}
+    <span class="text-center">Login and apply for a Job!</span>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

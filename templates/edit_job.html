@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Job</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    background-image: linear-gradient(to right, #fd85fd  0%, #65c1f6 100%);
+}
+div{
+    margin: 0 auto;
+    width: 100%;
+}
+.jobs{
+    margin-top: 200px;
+    margin-bottom: 0px;
+}
+.workers{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+.grid_container{
+    margin-top: 50px;
+    margin-bottom: 200px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 50px;
+    grid-auto-rows: minmax(100px, auto);
+    text-align: justify;
+}
+.grid{
+    background: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.grid_container h1{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.grid_container span{
+    font-size: 12px;
+    font-weight: 400;
+    color: #999;
+    margin-bottom: 10px;
+}
+.grid_container img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.btn{
+    background: rgb(248, 122, 242);
+    border:1px solid rgb(248, 122, 242);
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+}
+.btn:hover{
+    background: rgba(0, 0,0, 0);
+    border: 1px solid black;
+}
+.nav_bar{
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_bar nav li{
+    font-size: 14px;
+    font-weight: 700;
+    color: #999;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+
+}
+.nav_bar nav li:hover{
+    color: #000;
+}
+.nav_bar nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.nav_bar nav ul li{
+    margin-right: 10px;
+}
+
+form{
+    margin-top: 100px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    top: auto;
+}
+form button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+form input,textarea{
+    width: 35%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+form input::placeholder,textarea::placeholder{
+    color: rgb(0, 0, 0);
+}
+form input[type="submit"],input[type="file"]{
+    
+    background: white;
+    border:1px solid rgb(248, 122, 242);
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+}
+form input[type="submit"]:hover{
+    background: rgba(0, 0,0, 0);
+    border: 1px solid black;
+}
+label{
+    font-size: 14px;
+    font-weight: 700;
+    color: #999;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.model{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(104, 0, 95, 0.8);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+.close{
+    position: absolute;
+    top: 0;
+    right: 2%;
+    color: white;
+    width: 2px;
+    height: 2px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#child-h1{
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* model responsive */
+@media screen and (max-width: 600px){
+    .model{
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #child-h1{
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: white;
+    }
+    .model form{
+        background-color: rgb(0, 0, 0);
+        margin-top: 100px;
+        width: 90%;
+        border-radius: 10px ;
+        padding: 5%;
+    }
+    .model form input,textarea{
+        width: 100%;
+    }
+    .model form input[type="submit"],input[type="file"]{
+        margin-bottom: 10px;
+    }
+    .model form button{
+        margin-top: 10px;
+    }
+    .grid_container{
+        margin-top: 250px!important;
+        margin-bottom: 250px!important;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 5%;
+    }
+    
+}
+.job-btn{
+    background: rgb(248, 122, 242);
+    border:1px solid rgb(248, 122, 242);
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+}
+
+.grid-header{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.delete{
+    width: fit-content;
+    cursor: pointer;
+}
+.flexbox{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 5px 0px;
+    align-items: center;
+}
+.flexbox a{
+    margin-left: 10px;
+}
+</style>
+<body>
+
+    {% if user.is_authenticated %}
+<div class="model" style="overflow: scroll;">
+    <form action="/jobs/edit/{{job.id}}" method="post" enctype="multipart/form-data">
+        <h1 id="child-h1">Application</h1>
+        <input type="text" value="{{user.username}}" name="username">
+        <input type="text" value="{{user.email}}" name="email">
+        <input type="text" value="{{job.contact_no}}" name="contact_no">
+        <input type="text" value="{{job.location}}" name="location">
+        <input type="text" value="{{job.timings}}" name="timings">
+        <input type="text" value="{{job.job}}" id="job" name="job">
+        <input type="text" value="{{job.category}}" id="job" name="category">
+        <label for="files">Your CV</label>
+        <input type="file" name="filename" title="File">
+        <textarea name="description" id="" cols="30" rows="10"
+            value="{{job.description}}"></textarea>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+</div>
+
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dr. Suresh Eye Clininc & Opticals - {% block title %} {% endblock %} </title>
+
+    <link rel="shortcut icon" href="../static/images/fav.jpg">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="../static/css/auth.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/fontawsom-all.min.css">
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <link rel="stylesheet" href="../static/css/jobsstyle.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+</head>
+
+<body>
+
+    <!-- ################# Header Starts Here#######################--->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12 left-item">
+                        <ul>
+                            <li><i class="fas fa-envelope-square"></i> admin@locumforce.co.uk</li>
+                            <li><i class="fas fa-phone-square"></i> +0 123456789</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block right-item">
+                        <ul>
+                            <li><a><i class="fab fa-github"></i></a></li>
+                            <li><a><i class="fab fa-google-plus-g"></i></a></li>
+                            <li> <a><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a><i class="fab fa-twitter"></i></a></li>
+                            <li> <a><i class="fab fa-facebook-f"></i></a></li>
+                            
+                            {% if user.is_authenticated %}
+                            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                            <li><a href="/profile">{{user.username}}</a></li>
+                            {%if user.isAdmin %}
+                            <li><a href="/admin_dashboard">Dashboard</a></li>
+                            {% endif %}
+                            {% else %}
+                            <li><a href="{{ url_for('login') }}">Login</a></li>
+                            <li><a href="{{ url_for('signup') }}">Signup</a></li>
+                            {% endif %}
+
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="nav-head" class="header-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 nav-img">
+                        <img src="static/images/logo.jpg" alt="">
+                       <a data-toggle="collapse" data-target="#menu" href="#menu" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                    </div>
+                    <div id="menu" class="col-md-9 d-none d-md-block nav-item">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/services">Services</a></li>
+                            <li><a href="/jobs">Jobs</a></li>
+                            <li><a href="/gallery">Gallery</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            <!-- flash messages here  -->
+    {% with messages=get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+     <div class='alert alert-{{category}} alert-dismissible fade show'>
+       <span>{{ message }}</span>
+         <button type='button' class='close' data-dismiss='alert' aria-label='Close' onclick="this.parentElement.style.display='none'">
+            <span aria-hidden='true'>&times;</span>
+      </div>
+    {% endfor %}
+   {% endwith %}
+    </header>
+
+
+
+    {% block content %}
+
+    {% endblock %}
+
+        <!-- ################# Footer Starts Here#######################--->
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <h2>About Us</h2>
+                        <p>
+                            Locum Force are a specialist consultancy, having initially specialised in the pharmacy recruitment market we now specialise in the delivery of consultancy services to our client base ranging from public & private sector pharmacies, pharmaceutical firms, specialist robotics and chemical manufacturing. 
+                        </p>
+                        <p>With an exceptionally broad range of international clients we deliver innovative services including recruitment, sourcing, branding and service matching. </p>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <h2>Useful Links</h2>
+                        <ul class="list-unstyled link-list">
+                            <li><a ui-sref="about" href="/about">About us</a><i class="fa fa-angle-right"></i></li>
+                            <li><a ui-sref="gallery" href="/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>
+                            <li><a ui-sref="contact" href="/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-12 map-img">
+                        <h2>Contact Us</h2>
+                        <address class="md-margin-bottom-40">
+                            Locum Firce <br>
+                            Abc district <br>
+                            Xyz, UK <br>
+                            Phone: +01 23456798 <br>
+                            Email: <a href="mailto:admin@locumforce.co.uk" class="">admin@locumforce.co.uk</a><br>
+                            Web: <a href="/" class="">www.locumforce.co.uk</a>
+                        </address>
+    
+                    </div>
+                </div>
+            </div>
+            
+    
+        </footer>
+        <div class="copy">
+                <div class="container">
+                    <a href="https://www.smarteyeapps.com/">2022 &copy; All Rights Reserved | Designed and Developed Rayyan</a>
+                    
+                    <span>
+                    <a><i class="fab fa-github"></i></a>
+                    <a><i class="fab fa-google-plus-g"></i></a>
+                    <a><i class="fab fa-pinterest-p"></i></a>
+                    <a><i class="fab fa-twitter"></i></a>
+                    <a><i class="fab fa-facebook-f"></i></a>
+            </span>
+                </div>
+    
+            </div>
+</body>
+<script>
+    
+            
+    $(document).ready(function(){
+        $('.btn').click(function(){
+            $('.model').fadeIn();
+            $('#child-h1').html($(this).parent().find('h1').html());
+            $('#job').val($(this).parent().find('h1').html());
+            console.log($(this).parent().find('h1').html());
+        });
+        $('.close').click(function(){
+            $('.model').fadeOut();
+        });
+    });
+
+
+
+ 
+        
+</script>
+
+<script src="static/js/jquery-3.2.1.min.js"></script>
+<script src="static/js/popper.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
+<script src="../static/js/script.js"></script>
+<script src="../static/jobscript.js"></script>
+</html>

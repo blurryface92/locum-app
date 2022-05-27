@@ -1,0 +1,22 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.containerauth{
+    margin-top: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    margin-bottom: 150px;
+}
+.containerauth h1{
+    padding: 20px;
+}
+.row{
+    width: 100%;
+}
+footer{
+    width: 100%;
+}

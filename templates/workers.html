@@ -1,0 +1,22 @@
+{% extends "dashboard.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for job in jobs %}
+        <div class="col-sm-6">
+            <span class="badge badge-danger"><a href="/delete/{{job.id}}">x</a></span>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{job.name}}</h5>
+              <span>working as {{job.job}}</span>
+              <p class="card-text">{{job.description}}</p>
+              <span>{{job.location}} - {{job.timings}}</span><br><br>
+              <a href="mailto:{{job.email}}" class="btn btn-primary">Contact</a>
+              <a href="files/{{job.cv}}" class="btn btn-primary" target="_blank">View CV</a>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

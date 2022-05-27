@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %} {{user.username}} {% endblock %}
+
+{% block content %}
+   <div class="container" style="margin-top:300px ;">
+    <h1 style="font-size:48px ;"> Welcome to Dr. Suresh Eye Clininc & Opticals</h1>
+    {{user.username}}
+    {{user.email}}
+   </div>
+{% endblock %}

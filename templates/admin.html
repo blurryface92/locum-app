@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} {% endblock %}
+
+{% block content %}
+   <div class="containerauth">
+    <h1 style="font-size:48px ;"> Welcome to Dr. Suresh Eye Clininc & Opticals</h1>
+    <div class="container">
+        <div class="row">
+            
+       
+         <div style="padding:20px" class="col-sm-6">
+         <form action="/admin" method="post">
+            <h2 style="font-size:29px; color: rgb(0, 0, 0);">Login As Admin</h2>
+           
+            <div style="margin-top:10px;" class="row">
+
+
+                <div class="col-sm-8"><input type="text" name="email" placeholder="Email Address" class="form-control input-sm"  ></div>
+            </div>
+            <div style="margin-top:10px;" class="row">
+                
+                <div class="col-sm-8"><input password="text" name="pass" placeholder="Password" class="form-control input-sm"  ></div>
+            </div>
+    
+            <button type="submit" class="btn btn-danger btn-sm">Login</button>
+            
+        
+         </form>
+         </div>
+   </div>
+{% endblock %}

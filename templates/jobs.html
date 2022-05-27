@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %} Jobs {% endblock %}
+{% block content %}
+
+<div class="jobs">
+    <h1 class="workers">Available Workers</h1>
+    <div class="flexbox">
+        <a href="/jobs">All</a>
+        {% for job in list_of_jobs %}
+        <a href="/jobs/{{job}}">{{job}}</a>
+        {% endfor %}
+    </div>
+    {% if user.is_authenticated %}
+    <div class="hushyar">
+        <button class="btn">Apply</button>
+
+    </div>
+    {% endif %}
+    
+    {% block jobs%}
+    {% endblock %}
+
+{% if user.is_authenticated %}
+<div class="model" style="overflow: scroll;">
+    <div class="close">x</div>
+    <form action="/upload_job" method="post" enctype="multipart/form-data">
+        <h1 id="child-h1">Application</h1>
+        <input type="text" value="{{user.username}}" name="username">
+        <input type="text" value="{{user.email}}" name="email">
+        <input type="text" placeholder="Contact" name="contact_no">
+        <input type="text" placeholder="Location" name="location">
+        <input type="text" placeholder="Timing" name="timings">
+        <input type="text" placeholder="Job" id="job" name="job">
+        <input type="text" placeholder="Category" id="job" name="category">
+        <label for="files">Your CV</label>
+        <input type="file" name="filename" title="File">
+        <textarea name="description" id="" cols="30" rows="10"
+            placeholder="Briefly identify your self and tell us why you would you to apply?"></textarea>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+</div>
+
+{% endif %}
+
+
+
+
+{% endblock %}
