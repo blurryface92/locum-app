@@ -16,7 +16,8 @@ from werkzeug.security import generate_password_hash,check_password_hash
 #app config
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://kltefycbfirxgt:d100f14f530fb8d36ba9132ed4e5b7952cd6f943338c8452d364561f8f614b9b@ec2-3-211-221-185.compute-1.amazonaws.com:5432/deekoocadpamau'
+app.config['SQLALCHEMY_DATABASE_URI'] = """postgres://kltefycbfirxgt:d100f14f530fb8d36ba9132ed4e5b7952cd6f943338c8452d364561f8f614b9b@ec2-3-211-221-185.compute-1.amazonaws.com:5432/deekoocadpamau
+"""
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'secret'
 app.config['UPLOAD_FOLDER'] = 'files'
