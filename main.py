@@ -87,7 +87,6 @@ class Worker(db.Model):
     cv = db.Column(db.String(80), nullable=False)
     location = db.Column(db.String(120), nullable=False)
     timings = db.Column(db.String(120), nullable=False)
-    jobs = db.relationship('Jobs', backref='worker', lazy=True)
     def __repr__(self):
         return '<Job %r>' % self.title
 
