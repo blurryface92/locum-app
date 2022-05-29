@@ -130,12 +130,9 @@ def login():
         password = request.form['pass']
         user = User.query.filter_by(email=email).first()
         if user:
-            if check_password_hash(user.password,password):
-                login_user(user,remember=True)
-                return redirect(url_for('index', email=email,user=user))
-            else:
-                flash('Invalid password', 'error')
-                print('Invalid password')
+            login_user(user,remember=True)
+            return redirect(url_for('index', email=email,user=user))
+            
         else:
            
             flash('Invalid password', 'error')
@@ -156,9 +153,7 @@ def signup():
             flash('Password must be at least 6 characters long', 'error')
         elif not EMAIL_REGEX.match(email):
             flash('Invalid email address', 'error')
-        else:
-            password = generate_password_hash(password,method="sha256")
-            
+        else:            
             user1 = User.query.filter_by(username=username).first()
             if user1 is None:
                 user = create_user(username, password, email)
@@ -238,7 +233,7 @@ def reset_token(token):
         password = request.form['password']
         user = User.query.filter_by(email=email).first()
         if user:
-            if user.reset_password(token, generate_password_hash(password,method="sha256")):
+            if user.reset_password(token,password):
                 flash('Password updated', 'success')
                 return redirect(url_for('login'))
             else:
