@@ -91,15 +91,6 @@ class Worker(db.Model):
     def __repr__(self):
         return '<Job %r>' % self.title
 
-class Jobs(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    jobname = db.Column(db.String(80), nullable=False)
-    description = db.Column(db.String(120), nullable=False)
-    location = db.Column(db.String(120), nullable=False)
-    timings = db.Column(db.String(120), nullable=False)
-    salary = db.Column(db.String(120), nullable=False)
-    category = db.Column(db.String(120), nullable=False)
-    job_id = db.Column(db.Integer, db.ForeignKey('worker.job_id'), nullable=False)
 
 
 @login_manager.user_loader
