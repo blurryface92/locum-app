@@ -314,7 +314,7 @@ def jobs():
     list_of_jobs = []
     for job in jobs:
         if job.category not in list_of_jobs:
-            list_of_jobs.append(str(job.category).capitalize())
+            list_of_jobs.append(job.category)
 
     return render_template('all_jobs.html',user=current_user, jobs=jobs,list_of_jobs=list_of_jobs)
 @app.route('/jobs/<category>')
