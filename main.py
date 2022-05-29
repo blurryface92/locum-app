@@ -79,7 +79,7 @@ class Worker(db.Model):
     name = db.Column(db.String(80), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     contact_no = db.Column(db.String(120), nullable=False)
-    job_id = db.Column(db.Integer, nullable=False)
+    job_id = db.Column(db.String(10), nullable=False)
     description = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     job = db.Column(db.String(120), nullable=False)
