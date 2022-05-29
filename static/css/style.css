@@ -220,12 +220,16 @@ header {
 
     @media screen and (max-width: 916px) {
       header .header-nav .nav-item ul li {
-        padding: 30px 20px; } }
+        padding: 30px 20px; } .slider-detail {
+  margin-top: 65px!important;
+    padding-top: 128px!important;}}
     @media screen and (max-width: 767px) {
       header .header-nav .nav-item ul li {
         float: none;
         padding: 14px;
-        border-top: 1px solid #CCC; } }
+        border-top: 1px solid #CCC; } .slider-detail {
+  margin-top: 65px!important;
+    padding-top: 128px!important;}}
   header .header-nav .nav-img img {
     width: 200px;
     padding: 10px; 
@@ -240,14 +244,19 @@ header {
   font-size: 32px;
   margin-top: 23px;
   margin-right: 12px; }
-
+  .slider-detail .vdg-cur{
+    color: #f7f7f7;
+    margin-bottom: 20px;
+  }
 /* ===================================== Slider CSS ================================== */
 .slider-detail {
-  margin-top: 41px;
-  padding-top: 128px; }
+  margin-top: -4px;
+    padding-top: 128px}
   .slider-detail .carousel-caption {
+    display: block;
+    margin: 0 auto;
     text-align: left;
-    bottom: 110px; }
+    bottom: 11px;}
     .slider-detail .carousel-caption h5 {
       font-size: 44px;
       margin-left: -40px; }
@@ -263,9 +272,7 @@ header {
       margin-top: 40px;
       font-weight: 600;
       font-size: 18px; }
-  .slider-detail .vdg-cur {
-    color: #f7f7f7; 
-  margin-bottom: 250px;}
+
 
 /* ===================================== Key Features CSS ================================== */
 .key-features {
@@ -303,7 +310,8 @@ header {
 
 /* ===================================== Doctor Say CSS ================================== */
 .doctor-message {
-  margin-top: 50px;
+  display: block;
+  margin: 0 auto;
   background-image: url("../images/slider/slider_2.jpg");
   background-attachment: fixed;
   background-size: cover; }
@@ -495,6 +503,8 @@ header {
 
 /* ===================================== Gallery Style  ================================== */
 .gallery-filter {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   text-align: center; }
   .gallery-filter .btn {

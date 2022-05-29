@@ -27,19 +27,17 @@
         <a href="/files/{{job.cv}}" class="job-btn" target="_blank">CV</a>
     </div>
     {% endfor %}
+    
     {% else %}
     
-
     
-</div>
-</div>
-
-<div class="anytime">    
-    {% if user.is_authenticated %}
-    <span class="text-center">Feel Free to Apply!</span>
-    {% else %}
-    <span class="text-center">Login and apply for a Job!</span>
+    <div class="anytime">    
+        {% if user.is_authenticated %}
+        <span class="text-center">Feel Free to Apply!</span>
+        {% else %}
+        <span class="text-center">Login and apply for a Job!</span>
+        {% endif %}
+    </div>
     {% endif %}
 </div>
-{% endif %}
 {% endblock %}
