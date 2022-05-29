@@ -321,6 +321,7 @@ def jobs():
 def job_category(category):
     jobs = Worker.query.all()
     list_of_jobs = []
+    
     for job in jobs:
         if job.category not in list_of_jobs:
             list_of_jobs.append(job.category)
