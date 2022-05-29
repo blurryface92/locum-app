@@ -323,8 +323,8 @@ def job_category(category):
     list_of_jobs = []
     
     for job in jobs:
-        if job.category not in list_of_jobs:
-            list_of_jobs.append(job.category)
+            if job.category not in list_of_jobs:
+                list_of_jobs.append(str(job.category).capitalize())
     return render_template('categories.html',user=current_user, jobs=jobs, category=category, list_of_jobs=list_of_jobs)
 
 
