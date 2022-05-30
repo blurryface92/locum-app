@@ -251,7 +251,7 @@ def contact_mail():
     mobile_no = request.form['mobile_no']
     msg = request.form['msg']
     if username and email and mobile_no and msg:
-        message = Message('Contact Us', sender='Flask Mail Service', recipients=[email])
+        message = Message('Contact Us', sender='Flask Mail Service', recipients=["info.locumforce@gmail.com"])
         message.body = f'''
         Name: {username}
         Email: {email}
