@@ -26,8 +26,8 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'mwld92@gmail.com'
-app.config['MAIL_PASSWORD'] = 'idkifitismeornot111155'
+app.config['MAIL_USERNAME'] = 'info.locumforce@gmail.com'
+app.config['MAIL_PASSWORD'] = '919018##'
 
 mail = Mail(app)
 
